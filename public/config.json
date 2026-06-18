@@ -1,13 +1,13 @@
 {
-  "recipient": "Nabila",
-  "sender": "Rizky",
-  "title": "Selamat Ulang Tahun",
-  "message": "Buka hadiahnya ya.\n\nAku harap ini bisa bikin kamu senyum.\n\nHadiah ini mungkin sederhana, tapi niatnya besar.",
-  "photos": ["photo1.jpg", "photo2.jpg"],
+  "recipient": "",
+  "sender": "",
+  "title": "",
+  "message": "",
+  "photos": [],
   "theme": "pink",
-  "music": "song.mp3",
-  "musicTitle": "我们的歌",
+  "music": "",
+  "musicTitle": "",
   "template": "premium-02",
-  "captions": ["Kenangan kita", "Untukmu"],
-  "closing": "Dengan cinta, untukmu."
+  "captions": [],
+  "closing": ""
 }

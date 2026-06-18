@@ -76,7 +76,7 @@ export default function GiftBoxOpen() {
   if (error || !config) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-warm-white">
-        <div className="text-dark-luxury">Failed to load configuration</div>
+        <div className="text-dark-luxury">Gagal memuat konfigurasi</div>
       </div>
     );
   }
@@ -240,7 +240,7 @@ export default function GiftBoxOpen() {
                       >
                         <img
                           src={`/photos/${photo}`}
-                          alt={config.captions?.[idx] || `Photo ${idx + 1}`}
+                          alt={config.captions?.[idx] || `Foto ${idx + 1}`}
                           className="w-full h-full object-cover"
                         />
                         {config.captions?.[idx] && (

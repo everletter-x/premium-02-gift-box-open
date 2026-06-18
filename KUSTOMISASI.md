@@ -13,7 +13,8 @@ Panduan lengkap untuk mengkustomisasi template EverLetter sesuai pesanan buyer.
 5. [Pilihan Theme](#pilihan-theme)
 6. [Menambah Musik](#menambah-musik)
 7. [Deploy ke Vercel](#deploy-ke-vercel)
-8. [Troubleshooting](#troubleshooting)
+8. [Contoh Copywriting](#contoh-copywriting)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -88,11 +89,13 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Selamat Ulang Tahun",
-  "message": "Pesan pertama...\n\nPesan kedua...",
+  "message": "3... 2... 1...\n\nAda sesuatu yang ingin aku tunjukkan untukmu.\n\nSelamat membuka halaman kecil yang kubuat khusus untukmu.",
   "photos": ["1.jpg", "2.jpg"],
   "theme": "pink",
+  "music": "lagu.mp3",
+  "musicTitle": "Judul Lagu",
   "captions": ["Momen pertama", "Senyummu"],
-  "closing": "Dengan cinta, Rizky"
+  "closing": "Selamat ulang tahun, sayangku."
 }
 ```
 
@@ -115,11 +118,13 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Hadiah Untukmu",
-  "message": "Buka hadiahnya ya...\n\nSemoga kamu senang...",
+  "message": "Buka hadiahnya ya.\n\nAku harap ini bisa bikin kamu senyum.\n\nHadiah ini mungkin sederhana, tapi niatnya besar.",
   "photos": ["1.jpg", "2.jpg"],
   "theme": "lavender",
+  "music": "lagu.mp3",
+  "musicTitle": "Judul Lagu",
   "captions": ["Kenangan kita", "Untukmu"],
-  "closing": "Dengan cinta"
+  "closing": "Dengan cinta, untukmu."
 }
 ```
 
@@ -141,13 +146,13 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Terima Kasih Sudah Hadir",
-  "message": "Pembukaan...\n\nAlasan 1\n\nAlasan 2\n\nPenutup",
+  "message": "Aku cuma mau bilang satu hal.\n\nTerima kasih sudah hadir di hidupku.\n\nKalau boleh jujur, kamu adalah bagian paling indah dari hariku.\n\nAku sangat bersyukur memiliki kamu sebagai pasanganku.",
   "photos": ["1.jpg", "2.jpg", "3.jpg"],
   "theme": "warm-white",
   "music": "lagu.mp3",
-  "musicTitle": "Lagu Kita",
+  "musicTitle": "Judul Lagu",
   "captions": ["Foto 1", "Foto 2", "Foto 3"],
-  "closing": "Selamanya, Rizky"
+  "closing": "Terima kasih sudah menjadi bagian dari hidupku."
 }
 ```
 
@@ -170,11 +175,13 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Setiap Foto Punya Cerita",
-  "message": "Dan setiap cerita kembali ke kamu...",
+  "message": "Dan setiap cerita selalu kembali ke kamu.\n\nTerima kasih sudah jadi bagian dari kenanganku.",
   "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
   "theme": "pink",
+  "music": "lagu.mp3",
+  "musicTitle": "Judul Lagu",
   "captions": ["Pertemuan", "Tawa", "Pelukan", "Selamanya"],
-  "closing": "Terima kasih, Nabila"
+  "closing": "Terima kasih sudah menjadi bagian dari hidupku."
 }
 ```
 
@@ -197,17 +204,17 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Untuk Seseorang yang Mengubah Hidupku",
-  "message": "Pesan panjang...\n\nParagraf kedua...",
+  "message": "Untuk seseorang yang mengubah hidupku tanpa banyak bicara.\n\nSetiap momen bersamamu terasa seperti adegan yang layak diingat.\n\nTerima kasih sudah menjadi rumah.",
   "photos": ["1.jpg", "2.jpg", "3.jpg"],
   "theme": "dark-luxury",
   "music": "lagu.mp3",
-  "musicTitle": "Lagu Kita",
+  "musicTitle": "Judul Lagu",
   "chapters": [
-    {"title": "Pertemuan", "text": "Aku ingat pertama kali..."},
-    {"title": "Perjalanan", "text": "Bersamamu..."}
+    {"title": "Pertemuan", "text": "Aku ingat pertama kali kita bertemu. Waktu itu..."},
+    {"title": "Perjalanan", "text": "Bersamamu, setiap hari menjadi petualangan baru."}
   ],
   "captions": ["Momen 1", "Momen 2", "Momen 3"],
-  "closing": "Terima kasih sudah menjadi rumah"
+  "closing": "Terima kasih sudah menjadi rumahku."
 }
 ```
 
@@ -231,16 +238,16 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "recipient": "Nabila",
   "sender": "Rizky",
   "title": "Halaman Ini Dibuat Khusus Untukmu",
-  "message": "Pesan utama...",
+  "message": "Halaman ini dibuat khusus untukmu.\n\nSemua detailnya menyesuaikan cerita kalian.\n\nKarena beberapa perasaan memang terlalu penting untuk dibuat biasa saja.",
   "photos": ["1.jpg", "2.jpg", "3.jpg", "4.jpg"],
   "theme": "gold-accent",
   "music": "lagu.mp3",
-  "musicTitle": "Lagu Kita",
+  "musicTitle": "Judul Lagu",
   "sections": [
     {"type": "hero", "title": "Untuk Nabila", "subtitle": "Dari Rizky"},
-    {"type": "story", "title": "Cerita Kita", "text": "Setiap perjalanan..."},
+    {"type": "story", "title": "Cerita Kita", "text": "Setiap perjalanan dimulai dari satu langkah kecil..."},
     {"type": "photos", "title": "Moments"},
-    {"type": "message", "title": "Pesan Untukmu", "text": "Kamu adalah..."},
+    {"type": "message", "title": "Pesan Untukmu", "text": "Kamu adalah alasan aku tersenyum setiap hari."},
     {"type": "closing", "title": "Selamanya"}
   ],
   "captions": ["Foto 1", "Foto 2", "Foto 3", "Foto 4"],
@@ -370,6 +377,38 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
 
 ---
 
+## Contoh Copywriting
+
+### Good Copy (Singkat, Hangat, Romantis)
+
+- "Aku buatkan ini khusus untukmu."
+- "Karena kamu pantas dapat sesuatu yang lebih dari sekadar chat."
+- "Semoga halaman kecil ini bisa membuatmu tersenyum."
+- "Terima kasih sudah menjadi bagian dari hidupku."
+- "Aku cuma mau bilang satu hal."
+- "Terima kasih sudah hadir di hidupku."
+- "Kalau boleh jujur, kamu adalah bagian paling indah dari hariku."
+- "Buka hadiahnya ya."
+- "Aku harap ini bisa bikin kamu senyum."
+- "Hadiah ini mungkin sederhana, tapi niatnya besar."
+- "Setiap foto punya cerita."
+- "Dan setiap cerita selalu kembali ke kamu."
+- "Untuk seseorang yang mengubah hidupku tanpa banyak bicara."
+- "Setiap momen bersamamu terasa seperti adegan yang layak diingat."
+- "Halaman ini dibuat khusus untukmu."
+- "Semua detailnya menyesuaikan cerita kalian."
+- "Karena beberapa perasaan memang terlalu penting untuk dibuat biasa saja."
+
+### Bad Copy (Hindari!)
+
+- Terlalu marketing
+- Terlalu formal
+- Terlalu panjang
+- Terlalu alay
+- Terlalu umum
+
+---
+
 ## Troubleshooting
 
 ### Error: "Failed to load config"
@@ -425,7 +464,7 @@ Setiap template menggunakan `public/config.json` sebagai satu-satunya sumber dat
   "theme": "pink",
   "music": "",
   "musicTitle": "",
-  "template": "premium-03",
+  "template": "premium-01",
   "captions": [],
   "closing": ""
 }
@@ -490,7 +529,7 @@ A: Buka, edit `pages/index.tsx` dan tambah component baru.
 A: Buka, edit `tailwind.config.js` dan tambah warna baru.
 
 **Q: Berapa lama deploy selesai?**
-A: Biasanya 1-3 menit, tergantung复杂度代码和文件大小。
+A: Biasanya 1-3 menit, tergantung kompleksitas kode dan ukuran file.
 
 **Q: Bisa custom domain?**
 A: Buka, tambah domain di Vercel dashboard → Settings → Domains.
