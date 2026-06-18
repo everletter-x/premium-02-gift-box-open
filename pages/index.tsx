@@ -287,6 +287,12 @@ export default function GiftBoxOpen() {
           )}
         </motion.button>
 
+        {/* Pricing Section */}
+        <div className="fixed bottom-24 left-8 z-50 bg-dark-luxury/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
+          <p className="text-elegant-white/60 text-xs mb-1">Mulai dari</p>
+          <p className="text-2xl font-bold text-gold-accent">Rp 70K</p>
+        </div>
+
         <a
           href="https://wa.me/6282320114535?text=Halo%2C%20saya%20tertarik%20dengan%20EverLetter!"
           target="_blank"
