@@ -12,6 +12,7 @@ interface Config {
   theme: string;
   music: string;
   musicTitle: string;
+  musicAutoplay: boolean;
   template: string;
   captions: string[];
   closing: string;
@@ -35,7 +36,17 @@ export default function GiftBoxOpen() {
     if (config?.music) {
       audioRef.current = new Audio(`/audio/${config.music}`);
       audioRef.current.loop = true;
+      if (config.musicAutoplay) {
+        audioRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
     }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
+    };
   }, [config]);
 
   const toggleMusic = () => {
@@ -45,7 +56,7 @@ export default function GiftBoxOpen() {
       } else {
         audioRef.current.play();
       }
-      setIsPlaying(!isPlaying);
+      setIsPlaying(prev => !prev);
     }
   };
 
@@ -85,7 +96,15 @@ export default function GiftBoxOpen() {
             <motion.div
               key="closed"
               className="min-h-screen flex flex-col items-center justify-center cursor-pointer px-4"
+              role="button"
+              tabIndex={0}
               onClick={handleOpen}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleOpen();
+                }
+              }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -260,6 +279,7 @@ export default function GiftBoxOpen() {
 
         <motion.button
           onClick={toggleMusic}
+          aria-label={isPlaying ? 'Pause musik' : 'Putar musik'}
           className={`fixed bottom-8 right-8 w-14 h-14 rounded-full ${colors.accent} text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform`}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -277,12 +297,6 @@ export default function GiftBoxOpen() {
             </svg>
           )}
         </motion.button>
-
-        {/* Pricing Section */}
-        <div className="fixed bottom-24 left-8 z-50 bg-dark-luxury/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-          <p className="text-elegant-white/60 text-xs mb-1">Mulai dari</p>
-          <p className="text-2xl font-bold text-gold-accent">Rp 70K</p>
-        </div>
 
         <a
           href="https://wa.me/6282320114535?text=Halo%2C%20saya%20tertarik%20dengan%20EverLetter!"
@@ -307,10 +321,18 @@ export default function GiftBoxOpen() {
               });
             } else {
               navigator.clipboard.writeText(window.location.href);
-              alert('Link disalin ke clipboard!');
+              const toast = document.createElement('div');
+              toast.textContent = 'Link disalin ke clipboard!';
+              toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-dark-luxury/90 backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium';
+              document.body.appendChild(toast);
+              setTimeout(() => {
+                toast.style.transition = 'opacity 0.3s';
+                toast.style.opacity = '0';
+                setTimeout(() => document.body.removeChild(toast), 300);
+              }, 2000);
             }
           }}
-          className="fixed bottom-8 right-8 z-50 bg-white/20 backdrop-blur-sm text-white px-4 py-3 rounded-full shadow-lg hover:bg-white/30 transition-colors flex items-center gap-2"
+          className="fixed bottom-24 right-8 z-50 bg-white/20 backdrop-blur-sm text-white px-4 py-3 rounded-full shadow-lg hover:bg-white/30 transition-colors flex items-center gap-2"
           aria-label="Bagikan"
         >
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
