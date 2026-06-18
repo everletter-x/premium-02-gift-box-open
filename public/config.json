@@ -1,26 +1,23 @@
 {
-  "recipient": "",
-  "sender": "",
-  "title": "",
-  "message": "",
-  "photos": [],
+  "recipient": "Sena",
+  "sender": "Aku",
+  "title": "Hadiah Kecil Untuk Sena",
+  "message": "Di dalam kotak ini tersimpan sebagian kecil dari perasaanku yang tak terbatas. Setiap detik bersamamu adalah keajaiban yang tak pernah aku duga sebelumnya.",
+  "photos": [
+    "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800",
+    "https://images.unsplash.com/photo-1524638431109-93d95c968f03?w=800",
+    "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=800",
+    "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800"
+  ],
   "theme": "pink",
   "music": "",
   "musicTitle": "",
   "template": "premium-02",
-  "captions": [],
-  "closing": "",
-  "_example": {
-    "recipient": "Kamu",
-    "sender": "Aku",
-    "title": "Hadiah Kecil Untukmu",
-    "message": "Di dalam kotak ini tersimpan sebagian kecil dari perasaanku yang tak terbatas. Setiap detik bersamamu adalah keajaiban yang tak pernah aku duga sebelumnya.",
-    "captions": [
-      "Kenangan pertama kita",
-      "Saat cinta kita bersemi",
-      "Bahagia yang sederhana",
-      "Cinta yang tumbuh setiap hari"
-    ],
-    "closing": "Terima kasih sudah menjadi bagian terindah dalam hidupku."
-  }
+  "captions": [
+    "Kenangan pertama kita",
+    "Saat cinta kita bersemi",
+    "Bahagia yang sederhana",
+    "Cinta yang tumbuh setiap hari"
+  ],
+  "closing": "Terima kasih sudah menjadi bagian terindah dalam hidupku, Sena."
 }
