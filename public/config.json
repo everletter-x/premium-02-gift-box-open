@@ -9,5 +9,18 @@
   "musicTitle": "",
   "template": "premium-02",
   "captions": [],
-  "closing": ""
+  "closing": "",
+  "_example": {
+    "recipient": "Kamu",
+    "sender": "Aku",
+    "title": "Hadiah Kecil Untukmu",
+    "message": "Di dalam kotak ini tersimpan sebagian kecil dari perasaanku yang tak terbatas. Setiap detik bersamamu adalah keajaiban yang tak pernah aku duga sebelumnya.",
+    "captions": [
+      "Kenangan pertama kita",
+      "Saat cinta kita bersemi",
+      "Bahagia yang sederhana",
+      "Cinta yang tumbuh setiap hari"
+    ],
+    "closing": "Terima kasih sudah menjadi bagian terindah dalam hidupku."
+  }
 }
