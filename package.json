@@ -1,7 +1,7 @@
 {
-  "name": "premium-02-gift-box-open",
+  "name": "premium-01-countdown-reveal",
   "version": "1.0.0",
-  "description": "EverLetter Premium 02 - Gift Box Open",
+  "description": "EverLetter Premium 01 - Countdown Reveal",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -12,7 +12,8 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "framer-motion": "10.12.16"
+    "framer-motion": "10.12.16",
+    "@vercel/analytics": "^2.0.1"
   },
   "devDependencies": {
     "typescript": "5.0.4",
