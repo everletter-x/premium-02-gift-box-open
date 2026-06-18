@@ -8,15 +8,24 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "pink-soft": "#f8c8dc",
-        "rose": "#e8a0b8",
-        "lavender": "#d8b4e2",
-        "warm-white": "#faf8f5",
-        "dark-luxury": "#1a1a2e",
-        "gold-accent": "#d4af37",
-        "deep-black": "#0d0d0d",
-        "elegant-white": "#f5f0eb",
-        "starlight-glow": "#fffbe6",
+        'pink-soft': '#F8BBD0',
+        'rose': '#E91E63',
+        'lavender': '#E6E6FA',
+        'warm-white': '#FDF5E6',
+        'dark-luxury': '#1A1A1A',
+        'gold-accent': '#D4AF37',
+        'deep-black': '#0A0A0A',
+        'elegant-white': '#F8F6F3',
+        'starlight-glow': '#FFF8DC',
+      },
+      screens: {
+        'xs': '320px',
+        'sm': '375px',
+        'ms': '390px',
+        'ml': '414px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

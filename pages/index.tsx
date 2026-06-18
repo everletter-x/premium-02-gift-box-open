@@ -20,7 +20,7 @@ interface Config {
 
 const themeColors: Record<string, { bg: string; accent: string; text: string; glow: string }> = {
   pink: { bg: 'bg-pink-soft', accent: 'bg-rose', text: 'text-dark-luxury', glow: 'shadow-pink-soft' },
-  lavender: { bg: 'bg-lavender', accent: 'bg-dark-luxury', text: 'text-dark-luxury', glow: 'shadow-lavender' },
+  lavender: { bg: 'bg-lavender', accent: 'bg-lavender', text: 'text-dark-luxury', glow: 'shadow-lavender' },
   gold: { bg: 'bg-starlight-glow', accent: 'bg-gold-accent', text: 'text-dark-luxury', glow: 'shadow-gold-accent' },
 };
 
@@ -34,7 +34,7 @@ export default function GiftBoxOpen() {
 
   useEffect(() => {
     if (config?.music) {
-      audioRef.current = new Audio(`/audio/${config.music}`);
+      audioRef.current = new Audio(`/${config.music}`);
       audioRef.current.loop = true;
       if (config.musicAutoplay) {
         audioRef.current.play().catch(() => {});
@@ -87,7 +87,7 @@ export default function GiftBoxOpen() {
     <>
       <Head>
         <title>{config.title} - EverLetter</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
       </Head>
 
       <div className={`min-h-screen ${colors.bg} ${colors.text} overflow-hidden`}>
@@ -323,7 +323,7 @@ export default function GiftBoxOpen() {
               navigator.clipboard.writeText(window.location.href);
               const toast = document.createElement('div');
               toast.textContent = 'Link disalin ke clipboard!';
-              toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-dark-luxury/90 backdrop-blur-sm text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium';
+              toast.className = 'fixed top-4 left-1/2 -translate-x-1/2 z-[100] bg-warm-white/90 backdrop-blur-sm text-dark-luxury px-6 py-3 rounded-full shadow-lg text-sm font-medium';
               document.body.appendChild(toast);
               setTimeout(() => {
                 toast.style.transition = 'opacity 0.3s';
