@@ -2,22 +2,22 @@
   "recipient": "Sena",
   "sender": "Aku",
   "title": "Hadiah Kecil Untuk Sena",
-  "message": "Di dalam kotak ini tersimpan sebagian kecil dari perasaanku yang tak terbatas.",
+  "message": "Di dalam kotak ini tersimpan sebagian kecil dari perasaanku yang tak terbatas. Bukan sekadar hadiah, tapi ungkapan dari setiap kata yang tak sempat kuucapkan, setiap doa yang kupanjatkan di malam hari, dan setiap harapan yang kumiliki untuk masa depan kita.\n\nAda kalanya aku bertanya-tanya, bagaimana mungkin satu orang bisa mengubah seluruh dunia seseorang. Bukan dengan kata-kata besar atau janji yang megah, tapi dengan cara sederhananya — tawa kecil di pagi hari, sentuhan lembut saat aku lelah, dan kehadiran yang tak pernah goyah walau badai datang.\n\nKau tahu, ada hal-hal kecil yang mungkin tak pernah kau sadari tapi begitu berarti bagiku. Cara kau mengerutkan hidung saat tertawa, caramu menatapku saat berbicara, bahkan cara kau diam di sampingku saat kita tak butuh kata-kata. Semua itu, aku simpan sebagai harta paling berharga.\n\nDan di sini aku berdiri, dengan hati yang penuh syukur, menuliskan kata-kata yang mungkin tidak pernah cukup untuk menggambarkan betapa berharganya kau bagiku. Tapi aku akan terus mencoba, setiap hari, karena kau layak mendapatkan setiap kata baik yang bisa kutuliskan.",
   "photos": [
-    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80",
-    "https://images.unsplash.com/photo-1524638431109-93d95c968f03?w=800&q=80",
-    "https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=800&q=80",
-    "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=800&q=80"
+    "photo-1.jpg",
+    "photo-2.jpg",
+    "photo-3.jpg",
+    "photo-4.jpg"
   ],
   "theme": "pink",
   "music": "music/romantic-piano.mp3",
   "musicTitle": "Romantic Piano",
   "template": "premium-02",
   "captions": [
-    "Kenangan pertama kita",
-    "Saat cinta kita bersemi",
-    "Bahagia yang sederhana",
-    "Cinta yang tumbuh setiap hari"
+    "Kenangan pertama kita yang tak akan pernah aku lupakan",
+    "Saat cinta kita bersemi di tengah hujan cerita",
+    "Bahagia yang sederhana namun mendalam",
+    "Cinta yang tumbuh setiap hari seperti bunga di musim semi"
   ],
-  "closing": "Terima kasih sudah menjadi bagian terindah dalam hidupku, Sena."
+  "closing": "Terima kasih sudah menjadi bagian terindah dalam hidupku, Sena. Semoga hadiah kecil ini bisa membuatmu tersenyum, sama seperti senyummu yang selalu membuat hariku menjadi sempurna."
 }
