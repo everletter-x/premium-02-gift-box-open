@@ -28,7 +28,18 @@ module.exports = {
         'xl': '1280px',
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        serif: ['"Playfair Display"', 'Georgia', 'Cambria', '"Times New Roman"', 'serif'],
+        display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+      },
+      borderRadius: {
+        '4xl': '2rem',
+      },
+      boxShadow: {
+        'glass': '0 8px 32px rgba(0, 0, 0, 0.37)',
+        'glass-lg': '0 24px 80px rgba(0, 0, 0, 0.4)',
+        'glow-soft': '0 0 60px rgba(197, 179, 230, 0.15)',
+        'premium': '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
       },
     },
   },
