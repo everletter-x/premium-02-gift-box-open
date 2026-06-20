@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Head from 'next/head';
 import { useConfigLoader } from '../shared';
+import { RippleEffect } from '../components/RippleEffect';
 
 interface Config {
   recipient: string;
@@ -155,18 +156,96 @@ function DropCapParagraph({ text, delay = 0, accentHex }: { text: string; delay?
   );
 }
 
-/* ── Premium Gift Box SVG with ribbon ── */
-const GiftBoxIcon = ({ className, accentHex }: { className?: string; accentHex: string }) => (
-  <svg viewBox="0 0 24 24" fill="none" className={className}>
-    <rect x="2" y="10" width="20" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.6" />
-    <path d="M12 10V22" stroke={accentHex} strokeWidth="0.6" opacity="0.5" />
-    <path d="M2 15h20" stroke={accentHex} strokeWidth="0.6" opacity="0.4" />
-    <rect x="3" y="7" width="18" height="4" rx="1" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
-    <path d="M12 7c-1-3-4-4-5-2s1 4 5 2" stroke={accentHex} strokeWidth="0.6" fill="none" opacity="0.7" />
-    <path d="M12 7c1-3 4-4 5-2s-1 4-5 2" stroke={accentHex} strokeWidth="0.6" fill="none" opacity="0.7" />
-    <circle cx="12" cy="7" r="0.8" fill={accentHex} opacity="0.6" />
-  </svg>
-);
+/* ── Heart Burst Particles ── */
+function HeartBurst({ accentHex }: { accentHex: string }) {
+  const hearts = useMemo(() =>
+    [...Array(6)].map((_, i) => ({
+      angle: (i * 60 + 15) * Math.PI / 180,
+      distance: 150 + (i % 3) * 80,
+      size: 12 + (i % 3) * 8,
+      delay: i * 0.08,
+    })), []);
+
+  return (
+    <div className="absolute inset-0 pointer-events-none z-20">
+      {hearts.map((h, i) => (
+        <motion.div
+          key={i}
+          className="absolute"
+          style={{ left: "50%", top: "50%" }}
+          initial={{ x: 0, y: 0, opacity: 0, scale: 0 }}
+          animate={{
+            x: Math.cos(h.angle) * h.distance,
+            y: Math.sin(h.angle) * h.distance,
+            opacity: [0, 1, 0.8, 0],
+            scale: [0, 1.2, 0.6, 0],
+            rotate: [0, 360],
+          }}
+          transition={{ duration: 1.8, delay: h.delay, ease: "easeOut" }}
+        >
+          <svg viewBox="0 0 24 24" className="w-full" style={{ width: h.size, height: h.size }}>
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill={accentHex} />
+          </svg>
+        </motion.div>
+      ))}
+    </div>
+  );
+}
+
+/* ── 3D Gift Box with Lid Lift ── */
+function GiftBox3D({ accentHex, isOpening }: { accentHex: string; isOpening: boolean }) {
+  return (
+    <div className="relative" style={{ perspective: "800px" }}>
+      {/* Glow behind box */}
+      <div
+        className="absolute inset-[-30%] rounded-full blur-[60px] opacity-20"
+        style={{ background: `radial-gradient(circle, ${accentHex}, transparent)` }}
+      />
+      {/* Lid - lifts up on open */}
+      <motion.div
+        className="absolute"
+        style={{
+          top: 0, left: 0, right: 0,
+          transformOrigin: "bottom center",
+          zIndex: 20,
+        }}
+        animate={isOpening ? {
+          rotateX: -110,
+          y: -20,
+          opacity: [1, 1, 0],
+        } : {
+          rotateX: 0,
+          y: 0,
+          opacity: 1,
+        }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], times: [0, 0.6, 1] }}
+      >
+        <svg viewBox="0 0 120 36" className="w-full" style={{ width: "100%", height: "auto" }}>
+          {/* Lid top */}
+          <rect x="10" y="0" width="100" height="20" rx="3" fill={accentHex} fillOpacity="0.15" stroke={accentHex} strokeWidth="0.5" />
+          {/* Ribbon bow */}
+          <path d="M60 10c-8-12-20-8-20-2s8 8 20 4" stroke={accentHex} strokeWidth="1.5" fill="none" />
+          <path d="M60 10c8-12 20-8 20-2s-8 8-20 4" stroke={accentHex} strokeWidth="1.5" fill="none" />
+          <circle cx="60" cy="10" r="3" fill={accentHex} fillOpacity="0.4" />
+        </svg>
+      </motion.div>
+      {/* Box body */}
+      <svg viewBox="0 0 120 100" className="w-full" style={{ width: "100%", height: "auto" }}>
+        <rect x="10" y="20" width="100" height="80" rx="4" fill="none" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
+        {/* Ribbon vertical */}
+        <path d="M60 20v80" stroke={accentHex} strokeWidth="1" opacity="0.4" />
+        {/* Ribbon horizontal */}
+        <path d="M10 55h100" stroke={accentHex} strokeWidth="1" opacity="0.3" />
+        {/* Shadow */}
+        <ellipse cx="60" cy="105" rx="55" ry="6" fill="black" opacity="0.15" />
+      </svg>
+      {/* Glow particles on open */}
+      <AnimatePresence>
+        {isOpening && <HeartBurst accentHex={accentHex} />}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function GiftBoxOpen() {
   const { config, loading, error } = useConfigLoader<Config>('/config.json');
@@ -252,6 +331,7 @@ export default function GiftBoxOpen() {
       </Head>
 
       <div className={`min-h-screen ${colors.bg} ${colors.text} overflow-hidden font-sans selection:bg-white/20 relative`}>
+        <RippleEffect color={`${colors.accentHex}15`} />
         {/* Global ambient glow */}
         <div
           className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full opacity-10 blur-[140px] pointer-events-none"
@@ -279,19 +359,15 @@ export default function GiftBoxOpen() {
             >
               <TwinklingStars color={colors.accentHex} />
 
-              {/* Gift box with glow */}
+              {/* 3D Gift box with lid lift */}
               <motion.div
-                className="relative w-40 h-40 md:w-56 md:h-56 mb-12"
+                className="relative w-40 h-44 md:w-56 md:h-60 mb-12"
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div
-                  className="absolute inset-[-30%] rounded-full blur-[60px] opacity-20"
-                  style={{ background: `radial-gradient(circle, ${colors.accentHex}, transparent)` }}
-                />
-                <GiftBoxIcon className="w-full h-full text-white/70 relative z-10" accentHex={colors.accentHex} />
+                <GiftBox3D accentHex={colors.accentHex} isOpening={false} />
               </motion.div>
 
               <motion.p
@@ -339,30 +415,14 @@ export default function GiftBoxOpen() {
                 transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
                 style={{ background: `radial-gradient(circle at center, ${colors.accentHex}30, transparent 60%)` }}
               />
-              {/* Star burst */}
-              <motion.div className="absolute inset-0">
-                {[...Array(12)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute rounded-full"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      width: 3,
-                      height: 3,
-                      backgroundColor: colors.accentHex,
-                      boxShadow: `0 0 8px ${colors.accentHex}`,
-                    }}
-                    initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
-                    animate={{
-                      x: Math.cos((i * 30 * Math.PI) / 180) * 200,
-                      y: Math.sin((i * 30 * Math.PI) / 180) * 200,
-                      opacity: [1, 0],
-                      scale: [1, 0.3],
-                    }}
-                    transition={{ duration: 1.5, ease: "easeOut", delay: i * 0.05 }}
-                  />
-                ))}
+              {/* 3D Box with lid lifting */}
+              <motion.div
+                className="relative w-40 h-44 md:w-56 md:h-60 z-10"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: [0.8, 1.2, 0.95] }}
+                transition={{ duration: 2, ease: [0.22, 1, 0.36, 1] }}
+              >
+                <GiftBox3D accentHex={colors.accentHex} isOpening={true} />
               </motion.div>
               {/* White flash */}
               <motion.div
@@ -551,11 +611,19 @@ export default function GiftBoxOpen() {
                             style={{ transformPerspective: 1000 }}
                             whileHover={{ scale: 1.02, rotateY: idx % 2 === 0 ? 2 : -2, transition: { duration: 0.4 } }}
                           >
-                            <img
-                              src={`/${photo}`}
-                              alt={config.captions?.[idx] || `Foto ${idx + 1}`}
-                              className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-                            />
+                            <motion.div
+                              className="w-full h-full"
+                              style={{ willChange: 'transform' }}
+                              animate={{ scale: [1, 1.08, 1] }}
+                              transition={{ duration: 12 + idx * 2, repeat: Infinity, ease: 'easeInOut' }}
+                            >
+                              <img
+                                src={`/${photo}`}
+                                alt={config.captions?.[idx] || `Foto ${idx + 1}`}
+                                loading="lazy"
+                                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
+                              />
+                            </motion.div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50 group-hover:opacity-30 transition-opacity duration-500" />
                             <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
                               style={{ background: `radial-gradient(circle at 50% 50%, ${colors.accentHex}15, transparent 70%)` }}
